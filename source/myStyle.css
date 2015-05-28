@@ -18,12 +18,12 @@ body{
 #oven{
 	text-align: center;
 	margin-top: 375px;
-	margin-left: -180px;
+	margin-left: -100px;
 }
 #workstation{
 	text-align: center;
 	margin-top: 380px;
-	margin-left: 20px;
+	margin-left: 80px;
 
 }
 
@@ -35,7 +35,7 @@ body{
 
 #window{
 	text-align: center;
-	margin-top: 130px;
+	margin-top: 230px;
 }
 
 #Button{
