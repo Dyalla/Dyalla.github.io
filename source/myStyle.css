@@ -1,5 +1,15 @@
 /*Kitchen Parallax*/
 
+body{
+
+	background-color: lightgrey;
+}
+
+#kitchenBackground{
+	width: 1211px;
+	height: 768px;
+}
+
 #Clarence{
 	text-align: center;
 	margin-left: 330px;
