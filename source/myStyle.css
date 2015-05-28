@@ -49,3 +49,8 @@ body{
 	margin-top: 500px;
 	margin-left: 850px;
 }
+
+.forward-button{
+	width: 124px;
+	height: 124px;
+}
