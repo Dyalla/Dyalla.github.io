@@ -5,46 +5,46 @@
 
 <style>
 
-	body{background-color:lightgrey;width: %;height: 100vw;margin:0px}
-	#left_div{width: 50%;height: 768px; background-color: white;float: left;border-style: solid;border-width: 1px;border-color: lightgrey}
-	#right_div{width: 18%;height: 100%; background-color:lightgrey; float: right;overflow-y: scroll;}
-	#container{width: 100%;height: 100%;}
+	body{background-color:lightgrey;width: 1024px;height: 768px;margin:0px}
+	#left_div{margin-left: 10px; margin-top: 10px; width: 50%;height: 748px; background-color: white;float: left;border-style: solid;border-width: 1px;border-color: lightgrey}
+	#right_div{width: 12%;height: 10px; background-color:lightgrey; display: inline-block; border-radius: 130px; }
+	/*#container{width: 1024px;height: 768px;}*/
 
-	#imageColour{background-color: yellow;border-style: solid;border-width: 4px;border-color: lightgrey; width: 90%;height: 150px;}
-
+	#imageColour{ background-color: yellow;border-style: solid;border-width: 4px;border-color: lightgrey;  width: 40%;height: 100px;display: inline-block;}
+	
 </style>
 
 
-
+<link rel="stylesheet" type="text/css" href="source/1140.css">
 <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
 <script type="text/javascript" src="matha.js"></script>
 <script type="text/javascript" src="paint1.js"></script>
 
 </head>
 <body>
-	<div id="container">
+	<div id="container12">
 		<div id="left_div">
 
 			<!-- <button type="button" id="addColour">add colour</button> -->
 		</div>
-
+		
 		<div id="right_div">
 
-			<div id="imageColour">
-				<div id="100" onclick="mixColour(1,0,0)" style="width: 100%; height: 100%; background-color: rgb(192,0,0)"></div>		
-			</div>
+				<div id="imageColour">
+					<div id="100" onclick="mixColour(1,0,0)" style="width: 100%; height: 100%; background-color: rgb(192,0,0)"></div>		
+				</div>
 
-			<div id="imageColour">
-				<div id="010" onclick="mixColour(0,1,0)" style="width: 100%; height: 100%; background-color: rgb(255,255,0)"></div>		
-			</div>
+				<div id="imageColour">
+					<div id="010" onclick="mixColour(0,1,0)" style="width: 100%; height: 100%; background-color: rgb(255,255,0)"></div>		
+				</div>
 
-			<div id="imageColour">
-			<!-- the ids for these divs are an example of how we will store the colour, 0 parts red, 0 parts yellow, 1 part blue so the id is 001, i am unsure if their are better ways of storing this in the object/image/div that you are draging. -->
-				<div id="001" onclick="mixColour(0,0,1)" style="width: 100%; height: 100%; background-color: rgb(0,0,192)"></div>
+				<div id="imageColour">
+				<!-- the ids for these divs are an example of how we will store the colour, 0 parts red, 0 parts yellow, 1 part blue so the id is 001, i am unsure if their are better ways of storing this in the object/image/div that you are draging. -->
+					<div id="001" onclick="mixColour(0,0,1)" style="width: 100%; height: 100%; background-color: rgb(0,0,192)"></div>
+				</div>
 
 
-
-			</div>
+			
 		</div>
 	</div>
 
@@ -56,31 +56,31 @@
 	// $(document).ready(function() {
 		
 
- // 		$( "#addColour" ).click(function() {
+		 // 		$( "#addColour" ).click(function() {
 
- // 			//the following will be pulled out of the two colours ut in the mixing area. so that red (1,0,0) + yellow (0,1,0) would make 1,1,0. and red + orange = 2,1,0 (two parts red and one part yellow)
+		 // 			//the following will be pulled out of the two colours ut in the mixing area. so that red (1,0,0) + yellow (0,1,0) would make 1,1,0. and red + orange = 2,1,0 (two parts red and one part yellow)
 
- // 			//so here we will need to pull the feild that holds the the red, blue, yellow colour parts. It does not matter how these parts are stored as long as they can be accessed
+		 // 			//so here we will need to pull the feild that holds the the red, blue, yellow colour parts. It does not matter how these parts are stored as long as they can be accessed
 
- // 			// So if we
- // 			var red = 0;
- // 			var yellow = 0;
- // 			var blue = 1;
+		 // 			// So if we
+		 // 			var red = 0;
+		 // 			var yellow = 0;
+		 // 			var blue = 1;
 
- // 			//set resets to mixing
- // 			set();
- // 			//change will mix the colour, 32 = full colour, it returns a rgb colour like 'rgb (192,0,0)'
- // 			var colour = change(red*32,yellow*32,blue*32);
- // 			console.log(colour);
- 			
- // 			//i use a div here but u mite use an image (the object that is draged). u can see where i set the colour and the style. 
- // 			var div = "<div id=\""+red+""+yellow+""+blue+"\" onclick=\"mixColour(red,yellow,blue)\" style=\"width: 100%; height: 100%; background-color: "+colour+" \"></div>"
+		 // 			//set resets to mixing
+		 // 			set();
+		 // 			//change will mix the colour, 32 = full colour, it returns a rgb colour like 'rgb (192,0,0)'
+		 // 			var colour = change(red*32,yellow*32,blue*32);
+		 // 			console.log(colour);
+		 			
+		 // 			//i use a div here but u mite use an image (the object that is draged). u can see where i set the colour and the style. 
+		 // 			var div = "<div id=\""+red+""+yellow+""+blue+"\" onclick=\"mixColour(red,yellow,blue)\" style=\"width: 100%; height: 100%; background-color: "+colour+" \"></div>"
 
- // 			//here i am putting the div above inside another div. then adding it to the space that holds all the colours
- // 			$("#right_div").append("<div id=\"imageColour\">"+div+"</div>");
+		 // 			//here i am putting the div above inside another div. then adding it to the space that holds all the colours
+		 // 			$("#right_div").append("<div id=\"imageColour\">"+div+"</div>");
 
-	// 	});
-	// });
+			// 	});
+			// });
 	
 	var colourCount=0;
 	var MixRed=0;
