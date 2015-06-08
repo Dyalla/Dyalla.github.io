@@ -2,94 +2,99 @@
 <html>
 <head>
 
-
-<style>
-
-	body{background-color:lightgrey;width: 1024px;height: 768px;margin:0px}
-	#left_div{ margin-top: 10px; width: 50%;height: 748px; background-color: white;float: left;border-style: solid;border-width: 1px;border-color: lightgrey}
-	#right_div{width: 40%;height: 10px; background-color:lightgrey; display: inline-block; }
-	/*#container{width: 1024px;height: 768px;}*/
-
-	#imageColour{width: 20%;height: 100px; display: inline-block;}
-	
-</style>
-
 <!-- 
 <link rel="stylesheet" type="text/css" href="source/1140.css"> -->
+<!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- <script src="http://code.jquery.com/jquery-latest.js"></script> -->
+
+
+<!-- <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script> -->
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></script>
-<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="matha.js"></script>
-<script type="text/javascript" src="paint1.js"></script>
+
+
+
 <link rel="stylesheet" type="text/css" href="source/myStyle.css">
+
+
+
+
+<!-- Author: Danic Filip, danicfilip.com -->
 
 </head>
 <body>
 
-		<div id="left_div">
+		<!-- <div id="left_div">
+			</div> -->
+	
+	<!-- <div class="container"> -->
 
-			<!-- <button type="button" id="addColour">add colour</button> -->
-		</div>
-		<div class="container">
+
 		<div id="right_div">
 
 				<div id="imageColour">
-					<div id="100" onclick="mixColour(1,0,0)" style="width: 100%; height: 100%; background-color: rgb(192,0,0)"></div>		
+					<div id="100" onclick="mixColour(1,0,0)" style="width: 100%; height: 100%; background-color: rgb(192,0,0); border-radius:100px;"></div>	 
+					<!-- //red	 -->
 				</div>
 
 				<div id="imageColour">
-					<div id="010" onclick="mixColour(0,1,0)" style="width: 100%; height: 100%; background-color: rgb(255,255,0)"></div>		
+					<div id="010" onclick="mixColour(0,1,0)" style="width: 100%; height: 100%; background-color: rgb(255,255,0); border-radius:100px;"></div>		
 				</div>
 
 				<div id="imageColour">
 				<!-- the ids for these divs are an example of how we will store the colour, 0 parts red, 0 parts yellow, 1 part blue so the id is 001, i am unsure if their are better ways of storing this in the object/image/div that you are draging. -->
-					<div id="001" onclick="mixColour(0,0,1)" style="width: 100%; height: 100%; background-color: rgb(0,0,192)"></div>
+					<div id="001" onclick="mixColour(0,0,1)" style="width: 100%; height: 100%; background-color: rgb(0,0,192); border-radius:80px;"></div>
 				</div>
 
 
 			
 		</div>
 
-		 <div class="back-button">
+
+			<canvas id="SketchPad" width="800" height="600"></canvas>
+		
+
+		<div id="SketchTools">
+		<!-- Basic tools -->
+		
+		<a href="#SketchPad" data-color="#ff0000" title="Red"><div style="width: 100px; height: 100px; background-color: rgb(192,0,0); border-radius:100px;"></div></button></a>
+
+			</div>
+		
+
+		<div class="back-button">
 		<a href="index.html"> <img src="img/Exit.png">  </a>
 		</div>
 
-		</div>
+		 
+<!-- 
+		</div> -->
 		
+ <script type="text/javascript">
+		$(document).ready(function(){
+	    $('#SketchPad').sketch();
+	  });
+	</script>
 
 
+<script src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery-1.11.2.min.js"></script>
+
+<script type="text/javascript" src="matha.js"></script>
+<script type="text/javascript" src="paint1.js"></script>
+
+<script type="text/javascript" src="js/sketch.js"></script>
+<script type="text/javascript" src="js/myJs.js"></script>
 
 </body>
+
+
+<!-- mix colours -->
+
 <script type="text/javascript">
-	// $(document).ready(function() {
-		
 
-		 // 		$( "#addColour" ).click(function() {
-
-		 // 			//the following will be pulled out of the two colours ut in the mixing area. so that red (1,0,0) + yellow (0,1,0) would make 1,1,0. and red + orange = 2,1,0 (two parts red and one part yellow)
-
-		 // 			//so here we will need to pull the feild that holds the the red, blue, yellow colour parts. It does not matter how these parts are stored as long as they can be accessed
-
-		 // 			// So if we
-		 // 			var red = 0;
-		 // 			var yellow = 0;
-		 // 			var blue = 1;
-
-		 // 			//set resets to mixing
-		 // 			set();
-		 // 			//change will mix the colour, 32 = full colour, it returns a rgb colour like 'rgb (192,0,0)'
-		 // 			var colour = change(red*32,yellow*32,blue*32);
-		 // 			console.log(colour);
-		 			
-		 // 			//i use a div here but u mite use an image (the object that is draged). u can see where i set the colour and the style. 
-		 // 			var div = "<div id=\""+red+""+yellow+""+blue+"\" onclick=\"mixColour(red,yellow,blue)\" style=\"width: 100%; height: 100%; background-color: "+colour+" \"></div>"
-
-		 // 			//here i am putting the div above inside another div. then adding it to the space that holds all the colours
-		 // 			$("#right_div").append("<div id=\"imageColour\">"+div+"</div>");
-
-			// 	});
-			// });
-	
 	var colourCount=0;
 	var MixRed=0;
 	var MixYellow=0;
@@ -120,7 +125,7 @@
  			console.log(colour);
  			
  			//i use a div here but u mite use an image (the object that is draged). u can see where i set the colour and the style. 
- 			var div = "<div id=\""+red+""+yellow+""+blue+"\" onclick=\"mixColour("+red+","+yellow+","+blue+")\" style=\"width: 100%; height: 100%; background-color: "+colour+" \"></div>"
+ 			var div = "<div id=\""+red+""+yellow+""+blue+"\" onclick=\"mixColour("+red+","+yellow+","+blue+")\" style=\"width: 100%; height: 100%; border-radius:80px; background-color: "+colour+" \"></div>"
 
  			//here i am putting the div above inside another div. then adding it to the space that holds all the colours
  			//$("#right_div").append("<div id=\"imageColour\">"+div+"</div>");
@@ -130,71 +135,6 @@
     </script> 
 </html>
 
-<!--    function mix (colour1,colour2) {
-	// console.log("colour mixing");
-	//     	switch(colour1) {
-	//     		case "yellow":
-	//        			switch(colour2) {
-	//        				case "red":
-	//        					return "orange";
-
-	//        				case "blue":
-	//        					return "green";
-
-	//        				case "orange":
-	//        					return //"greenorange";
-
-	//        				case "green":
-	//        					return "greenyellow";
-
-	//        			}
-	//         		break;
-
-	//     		case "red":
-	//         		switch(colour2) {
-	//        				case "yellow":
-	//        					return "orange";
-
-	//        				case "blue":
-	//        					return "purple";
-
-	//        				case "orange":
-	//        					return //orangered;
-
-	//        				case "purple":
-	//        					return //bluepurple;
-	//        			}
-	//         		break;
-	//         	case "blue":
-	//         		switch(colour2) {
-	//        				case "red":
-	//        					return "purple";
-
-	//        				case "yellow":
-	//        					return "green";
-
-	//        				case "purple":
-	//        					return //blue purple;
-
-	//        				case "green":
-	//        					return //bluegreen;
-	//        			}
-	//         		break;
-
-	//         	case "orange":
-	//         		//
-	//         		break;
-
-	//         	case "purple":
-	//         		//
-	//         		break;
-
-	//         	case "green":
-	//         		//
-	//         		break;
-	    
-	// 		}
-	//     }      -->
 
 
 	
