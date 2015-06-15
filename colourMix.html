@@ -2,48 +2,96 @@
 <html>
 <head>
 
-<!-- 
-<link rel="stylesheet" type="text/css" href="source/1140.css"> -->
-<<<<<<< HEAD
-=======
-<!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-<script src="js/jquery-1.10.2.min.js"></script>
-<script src="js/jquery-1.11.2.min.js"></script>
-<script type="text/javascript" src="js/sketch.js"></script>
-<!-- <script src="http://code.jquery.com/jquery-latest.js"></script> -->
+<!-- <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
 
 
-<!-- <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script> -->
->>>>>>> origin/master
+<!-- Include meta tag to ensure proper rendering and touch zooming -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"></script>
+<!-- Include jQuery Mobile stylesheets -->
+<link rel="stylesheet" href="source/colorchef.min.css" />
+<link rel="stylesheet" href="source/jquery.mobile.icons.min.css" />
+
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+
+<!-- Include the jQuery library -->
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- Include the jQuery Mobile library -->
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+<script src="js/jquery.ui.touch-punch.min.js"></script>
 
 
 
 <link rel="stylesheet" type="text/css" href="source/myStyle.css">
+ <link rel="stylesheet" type="text/css" href="source/1140.css">
 
 
-
-<script type="text/javascript" src="matha.js"></script>
-<script type="text/javascript" src="paint1.js"></script>
-
-
-<script type="text/javascript" src="js/myJs.js"></script>
-
-
-<!-- Author: Danic Filip, danicfilip.com -->
 
 </head>
 <body>
 
-		<!-- <div id="left_div">
-			</div> -->
-	
-	<!-- <div class="container"> -->
 
+<div data-role="page" id="page1">
+
+	<div data-role="content">
+				
+	  
+			<ul id="scene">
+
+					<li class="layer" id="kitchenBackground"    data-depth="0.001"> 
+					<img class="kitchenBackground"src="img/background.png"></li>
+
+
+
+					         <li class="layer" id="shelf"  data-depth="0.22"> 
+					         	<img class="shelf" src="img/Shelf.png">
+					         </li>
+
+				          	 <li class="layer" id="oven"  data-depth="0.2"> 
+				          		<img class="oven" src="img/oven.png">
+				         	 </li>
+
+
+					         <li class="layer" id="window"  data-depth="0.28">
+					          <img class="window" src="img/Window.png">
+				             </li>
+
+					         <li class="layer" id="workstation"  data-depth="0.28"> 
+					         	<img class="workstation" src="img/Workstation.png">
+					         </li>
+
+					          <li class="layer" id="Clarence"  data-depth="0.26"> 
+					          	<img class="Clarence" src="img/Clarence.png">
+					          </li>
+
+
+					        <li class="layer" id="Button"  data-depth="0.001">
+						        
+					     			 <a href="#page2"> 
+					     			 	<img class="forward-button" src="img/Mix.png">  
+					     			 </a> 
+								
+						   	</li>
+			</ul>
+		</div>				
+	</div>
+</div>
+
+
+
+
+
+
+
+<div data-role="page" id="page2">
+
+<div data-role="content">
+	<div class="container12">
 
 		<div id="right_div">
 
@@ -58,89 +106,54 @@
 
 				<div id="imageColour">
 				<!-- the ids for these divs are an example of how we will store the colour, 0 parts red, 0 parts yellow, 1 part blue so the id is 001, i am unsure if their are better ways of storing this in the object/image/div that you are draging. -->
-					<div id="001" onclick="mixColour(0,0,1)" style="width: 100%; height: 100%; background-color: rgb(0,0,192); border-radius:80px;"></div>
+					<div id="001" onclick="mixColour(0,0,1)" style="width: 100%; height: 100%; background-color: rgb(0,0,192); border-radius:100px; "></div>
 				</div>
 
+				<div id="imageColour">
+					<div id="111" onclick="mixColour(1,1,1)" style="width: 100%; height: 100%; background-color: rgb(0,0,0); border-radius:100px;"></div>	 
+					<!--black-->
+				</div>
 
+				<!-- <div id="imageColour">
+					<div id="000" onclick="mixColour(0,0,0)" style="width: 100%; height: 100%; background-color: rgb(255,255,255); border-radius:100px;"></div>	 
+					 </div> -->
+							<!-- not sure what's happening with the white here -->
 			
 		</div>
 
-
-			<canvas id="SketchPad" width="800" height="600"></canvas>
-		
-
-		<div id="SketchTools">
-		<!-- Basic tools -->
-		
-		<a href="#SketchPad" data-color="#ff0000" title="Red"><div style="width: 100px; height: 100px; background-color: rgb(192,0,0); border-radius:100px;"></div></a>
-
-			</div>
-		
-
-		<div class="back-button">
-		<a href="index.html"> <img src="img/Exit.png">  </a>
+		<div id="mixed_colours" > 
+			<!-- palette area -->
 		</div>
 
-		 
-<!-- 
-		</div> -->
-		
+		<button id="ClearPalette" onclick="clearPalette('mixed_colours')">Reset Mix</button>
+
+		<div class="back-button">
+		<a href="#page1"> <img src="img/Exit.png"> </a>
+		</div>
+
+	</div>
+</div>
+
+</div>
+
+
  <script type="text/javascript">
-		$(document).ready(function(){
-	    $('#SketchPad').sketch();
-	  });
-	</script>
+$(document).ready(function(){
+   $('#scene').parallax();
 
 
+});
+
+</script>
+<script src="js/jquery.parallax.min.js"></script>
+<!-- <script src="js/interact-1.2.4.min.js"></script> -->
+<script src="js/matha.js"></script>
+<script src="js/paint1.js"></script>
+<script src="js/myJs.js"></script>
 
 
 </body>
 
 
-<!-- mix colours -->
 
-<script type="text/javascript">
-
-	var colourCount=0;
-	var MixRed=0;
-	var MixYellow=0;
-	var MixBlue=0;
-
-	
-	function mixColour (red,yellow,blue) {
-
-		//adds the colour parts to the mix
-		MixRed+=red;
-		MixYellow+=yellow;
-		MixBlue+=blue;
-		colourCount++;
-		if(colourCount==2){
-			addNewColour(MixRed,MixYellow,MixBlue);
-			colourCount=0;
-			MixRed=0;
-			MixYellow=0;
-			MixBlue=0;
-
-		}
-	}
-
-	function addNewColour (red,yellow,blue) {
-			set();
- 			//change will mix the colour, 32 = full colour, it returns a rgb colour like 'rgb (192,0,0)'
- 			var colour = change(red*32,yellow*32,blue*32);
- 			console.log(colour);
- 			
- 			//i use a div here but u mite use an image (the object that is draged). u can see where i set the colour and the style. 
- 			var div = "<div id=\""+red+""+yellow+""+blue+"\" onclick=\"mixColour("+red+","+yellow+","+blue+")\" style=\"width: 100%; height: 100%; border-radius:80px; background-color: "+colour+" \"></div>"
-
- 			//here i am putting the div above inside another div. then adding it to the space that holds all the colours
- 			//$("#right_div").append("<div id=\"imageColour\">"+div+"</div>");
- 			document.getElementById('right_div').innerHTML =document.getElementById('right_div').innerHTML + "<div id=\"imageColour\">"+div+"</div>";
-	}
-
-    </script> 
 </html>
-
-
-
-	
