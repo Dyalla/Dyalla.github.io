@@ -1,3 +1,19 @@
+/*Login Placement*/
+
+.bg{
+	
+}
+
+.door{
+	margin-top: -580px;
+	margin-left: 360px;
+	/*width:auto;*/
+	width: 300px;
+	height:80%;
+
+
+}
+
 /*Kitchen Parallax*/
 
 #mixed_colours{
@@ -28,26 +44,21 @@
     border: 3px solid black;
 }
 
-#box{
-	background-color: black;
-	width: 10px;
-	height: 20px;
-}
 
-
+/*
 #simple_sketch
 {
 	border-color: black;
 	border-width: 3px;
 	border-style: solid;
 	background-color: white;
-	/*border-radius: 100px;*/
+	border-radius: 100px;
 	width: 800px;
 	height: 500px;
 	margin-left: 100px;
 	margin-top: 100px;
 }
-
+*/
 /*body{
 	background-color:#1f4d30;
 	width: 1211px;
@@ -127,19 +138,28 @@
 	margin-left: 300px;
 }
 
+#Button{
 
-.back-button{
+	/*margin-top: -100px;*/
+
+}
+
+.back-button-parallax{
 	
-	margin-top: 500px;
-	margin-left: 850px;
-	display: inline;
+	margin-top: -200px;
+	
+	margin-left: 50px;
+
+}
+.back-button {
+	
+ margin-left: 780px;
+ margin-top: 30px;
 
 }
 
 .forward-button{
 
-/*	position: inline;*/
     margin-left: 780px;
-    margin-top: 570px;
+    margin-top: 600px;
 }
-
