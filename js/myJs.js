@@ -1,91 +1,135 @@
 $(document).ready(function(){
-	console.log("I am ready.. but still a lil bitch");
-    // $('#simple_sketch').sketch();
+
+    
+    	$('#scene').parallax();
 
 
+    	//theme song
 
-});
+        var audioElement = document.createElement('audio');
+        audioElement.setAttribute('src', 'sounds/Lava.mp3');
+        // audioElement.setAttribute('autoplay', 'autoplay');
+        //audioElement.load()
+         audioElement.loop=true;
 
-// $(function(){
-// 	$("#imageColour").draggable();
-// });
+        $.get();
 
-// $('div').click(function(){
-// 	$(this).toggleClass('selected');
-// });
+        audioElement.addEventListener("load", function() {
+            audioElement.play();
 
-// $('input[type="button"]').click(function(){
-// 	mixColour();
-// });
+        }, true);
 
+        $('.play').click(function() {
+            audioElement.play();
+
+        });
+
+        $('.pause').click(function() {
+            audioElement.pause();
+        });
+
+        $('#workstation').addClass('animated bounce infinite');
+    });
 
 
 
 
 // mix colours 
 
-	var colourCount=0;
+	//holds the current parts of each colour (shown on the screen)
 	var MixRed=0;
 	var MixYellow=0;
 	var MixBlue=0;
 
-	var divCount=0;
 
+	//list of the saved colours
+	//can be used get colours into painting page.
+	var colours = [];
 	
-	function mixColour (red,yellow,blue) {
+function reset () {
+	//resets the colour mixing div
+	set();
+	MixRed=0;
+	MixYellow=0;
+	MixBlue=0;
+	mixColour(0,0,0,0);
 
-		//adds the colour parts to the mix
+}
+
+function save () {
+
+	var colour = change(MixRed*32,MixYellow*32,MixBlue*32);
+
+
+	//adds the colour to the list of saved colours
+	colours.push(colour);
+
+
+			//magic to chek the the colours is not repeated.
+			//removes the reapeated colour if it exists
+ 			for(var i=0;i<colours.length;i++){
+
+ 				for(var j=0;j<(colours.length/2)+1;j++){
+
+ 					if(i!=j&&colours[i]==colours[j]){
+ 						alert('colour exists');
+ 						colours.splice(i, 1);
+ 						return;
+ 					}
+ 				}
+ 			}
+
+
+ 			//checks for white
+ 		if(colour=='rgb(255,255,255)'){
+ 				alert('white');
+ 				return;
+ 		}
+
+	//i use a div here but u mite use an image (the object that is draged). u can see where i set the colour and the style. 
+ 			var div = "<div id=\"id"+MixRed+""+MixYellow+""+MixBlue+"\" src='image.png' onclick=\"mixColour(id"+MixRed+""+MixYellow+""+MixBlue+","+MixRed+","+MixYellow+","+MixBlue+")\" style=\"width: 100%; height: 100%; background-color: "+colour+" \"></img>"
+
+
+
+ 			//here i am putting the div above inside another div. then adding it to the space that holds all the colours
+
+ 			document.getElementById('right_div').innerHTML =document.getElementById('right_div').innerHTML + "<div id=\"imageColour\">"+div+"</div>";
+
+
+
+ 			//calles reset to start new mixing
+ 			reset();
+
+}
+
+	/*
+		called when you click on a colour
+	*/
+	function mixColour (Newid,red,yellow,blue) {
+
+
+		set();
+		//increase the parts by the amount requested
 		MixRed+=red;
 		MixYellow+=yellow;
 		MixBlue+=blue;
-		colourCount++;
 
+		//make the colour
+		var colour = change(MixRed*32,MixYellow*32,MixBlue*32);
 
-		if(colourCount==2){  //this is where the magic happens
-			addNewColour(MixRed,MixYellow,MixBlue);
-			colourCount=0;
-			MixRed=0;
-			MixYellow=0;
-			MixBlue=0;
-
+		//check for black
+		if(colour=='rgb(0,0,0)'){
+			//if black alert and reset
+			alert('black');
+			reset();
+			return;
 		}
-
-	}
-
-	function addNewColour (red,yellow,blue) {
 			
-      divCount++;         //this counts the colours being created
-
-			set();
-
- 			//change will mix the colour, 32 = full colour, it returns a rgb colour like 'rgb (192,0,0)'
- 			var colour = change(red*32,yellow*32,blue*32);
- 			console.log(colour);
- 			
- 			//i use a div here but u mite use an image (the object that is draged). u can see where i set the colour and the style. 
- 			var div = "<div id=\""+red+""+yellow+""+blue+"\" onclick=\"mixColour("+red+","+yellow+","+blue+")\" style=\"width: 100%; height: 100%; background-color: "+colour+" \"></div>"
- 			
- 			console.log(divCount);
-
- 			if(divCount>=13){   //this resets the palette counter
- 				return;
- 				console.log("STOP PLS"); 
- 				
- 			}
-
- 			//here i am putting the div above inside another div. then adding it to the space that holds all the colours
- 			//$("#right_div").append("<div id=\"imageColour\">"+div+"</div>");
- 			document.getElementById('mixed_colours').innerHTML =document.getElementById('mixed_colours').innerHTML + "<div id=\"imageColour\">"+div+"</div>";
-
- 			// if (addNewColourCount==11) {};
+		//update the mixing div to the new mixed colour
+		document.getElementById('mixed_colours').style.backgroundColor = colour;
 	}
 
 
-	function clearPalette(elementID) {         //this is the function for the clearing the palette
-    		document.getElementById("mixed_colours").innerHTML = "";
 
-    		if(clearPalette){
-    			divCount=0;
-    		}
-    	
-	}
+
+	

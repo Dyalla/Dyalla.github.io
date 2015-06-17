@@ -22,24 +22,61 @@
 
 <!-- Include the jQuery Mobile library -->
 <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-
-<script src="js/jquery.ui.touch-punch.min.js"></script>
+<!-- 
+<script src="js/jquery.ui.touch-punch.min.js"></script> -->
 
 
 
 <link rel="stylesheet" type="text/css" href="source/myStyle.css">
  <link rel="stylesheet" type="text/css" href="source/1140.css">
 
+ <link rel="stylesheet" type="text/css" href="source/normalize.css" />
+<!-- <link rel="stylesheet" type="text/css" href="css/demo.css" /> -->
+<link rel="stylesheet" type="text/css" href="fonts/font-awesome.min.css" />
+<link rel="stylesheet" type="text/css" href="source/menu_bubble.css" />
+
+<link rel="stylesheet" type="text/css" href="source/animate.min.css"/>
+<script src="js/snap.svg-min.js"></script>
+
 
 
 </head>
 <body>
 
+
+<div class="container">
+			<div class="menu-wrap">
+				<nav class="menu">
+					<div class="icon-list">
+
+						<div class="play"><span>Play</span></div>
+						<div class="pause"><span>Pause</span></div>
+						
+						 <a href="#page1"> 
+	     			 		<img class="" src="img/Exit.png">  
+	     			 	</a> 
+
+					</div>
+				</nav>
+				<button class="close-button" id="close-button"></button>
+				<div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+					<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+						<path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+					</svg>
+				</div>
+			</div>
+			<button class="menu-button" id="open-button"></button>
+			
+		</div><!-- /container -->
 <div data-role="page" id="page1">
 
 	<div data-role="content">
-	<div class="bg"><img src="img/Background1.png"></div>
-	<div class="door"><a href="#page2"><img src="img/Door.png"></a> </div>
+
+		
+
+		<div class="bg"><img src="img/Background1.png"></div>
+		<div class="door" onclick="document.getElementById('tring').play()"><a href="#page2"><img src="img/Door.png"></a> </div>	
+		<audio id="tring" src="sounds/tring.mp3">
 
 	</div>
 </div>
@@ -47,8 +84,7 @@
 
 <div data-role="page" id="page2">
 
-	<div data-role="content">
-				
+	
 	  
 			<ul id="scene">
 
@@ -57,7 +93,7 @@
 
 
 
-					         <li class="layer" id="shelf"  data-depth="0.22"> 
+					         <li class="layer" id="shelf"  data-depth="0.1"> 
 					         	<img class="shelf" src="img/Shelf.png">
 					         </li>
 
@@ -66,20 +102,24 @@
 				         	 </li>
 
 
-					         <li class="layer" id="window"  data-depth="0.28">
+					         <li class="layer" id="window"  data-depth="0.1">
 					          <img class="window" src="img/Window.png">
 				             </li>
 
-					         <li class="layer" id="workstation"  data-depth="0.28"> 
-					         	<img class="workstation" src="img/Workstation.png">
-					         </li>
+					        
 
 					          <li class="layer" id="Clarence"  data-depth="0.26"> 
 					          	<img class="Clarence" src="img/Clarence.png">
 					          </li>
 
 
-					        <li class="layer" id="Button"  data-depth="0.001">
+					           <li class="layer" id="workstation"  data-depth="0.28"> 
+					           <a href="#page3"> 
+					         	<img class="workstation" id="workstation" src="img/Workstation.png">
+					         	</a>
+					         </li>
+
+					     <!--    <li class="layer" id="Button"  data-depth="0.001">
 						        
 					     			 <a href="#page3"> 
 					     			 	<img class="forward-button" src="img/Mix.png">  
@@ -88,51 +128,50 @@
 					     			 	<img class="back-button-parallax" src="img/Exit.png">  
 					     			 </a> 
 								
-						   	</li>
+						   	</li> -->
 			</ul>
 		</div>				
 	</div>
 </div>
 
 
-
-
-
-
-
 <div data-role="page" id="page3">
 
 <div data-role="content">
+
 	<div class="container12">
 
-		<div id="right_div">
+		
+	
+<div id="right_div">
 
-				<div id="imageColour">
-					<div id="100" onclick="mixColour(1,0,0)" style="width: 100%; height: 100%; background-color: rgb(192,0,0); border-radius:100px;"></div>	 
-					<!-- //red	 -->
-				</div>
+			<div id="imageColour">
+				<img id="id100"  onclick="mixColour(id100,1,0,0)" style="width: 100%; height: 100%; background-color: rgb(192,0,0) "></img>		
+			</div>
 
-				<div id="imageColour">
-					<div id="010" onclick="mixColour(0,1,0)" style="width: 100%; height: 100%; background-color: rgb(255,255,0); border-radius:100px;"></div>		
-				</div>
+			<div id="imageColour">
+				<img id="id010" onclick="mixColour(id010,0,1,0)" style="width: 100%; height: 100%; background-color: rgb(255,255,0)"></img>		
+			</div>
 
-				<div id="imageColour">
-				<!-- the ids for these divs are an example of how we will store the colour, 0 parts red, 0 parts yellow, 1 part blue so the id is 001, i am unsure if their are better ways of storing this in the object/image/div that you are draging. -->
-					<div id="001" onclick="mixColour(0,0,1)" style="width: 100%; height: 100%; background-color: rgb(0,0,192); border-radius:100px; "></div>
-				</div>
+			<div id="imageColour">
+			<!-- the ids for these divs are an example of how we will store the colour, 0 parts red, 0 parts yellow, 1 part blue so the id is 001, i am unsure if their are better ways of storing this in the object/image/div that you are draging. -->
+				<img id="id001"  onclick="mixColour(id001,0,0,1)" style="width: 100%; height: 100%; background-color: rgb(0,0,192)"></img>		
 
-			
+			</div>
 		</div>
+	</div>
 
 		<div id="mixed_colours" > 
 			<!-- palette area -->
 		</div>
 
-		<button id="ClearPalette" onclick="clearPalette('mixed_colours')">Reset Mix</button>
+	<!-- 	<button id="ClearPalette" onclick="clearPalette('mixed_colours')">Reset Mix</button>
+ -->
+		<div class="reset">
+				<button onclick="reset()" >reset</button>
+				<button type="button" onclick="save()" >save</button>
+			</div>
 
-		<div class="back-button">
-		<a href="#page2"> <img src="img/Exit.png"> </a>
-		</div>
 
 	</div>
 </div>
@@ -140,14 +179,9 @@
 </div>
 
 
- <script type="text/javascript">
-$(document).ready(function(){
-   $('#scene').parallax();
 
-
-});
-
-</script>
+<script src="js/classie.js"></script>
+<script src="js/main4.js"></script>
 <script src="js/jquery.parallax.min.js"></script>
 <!-- <script src="js/interact-1.2.4.min.js"></script> -->
 <script src="js/matha.js"></script>
