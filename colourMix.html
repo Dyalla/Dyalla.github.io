@@ -84,51 +84,35 @@
 
 <div data-role="page" id="page2">
 
-	
-	  
 			<ul id="scene">
 
 					<li class="layer" id="kitchenBackground"    data-depth="0.001"> 
 					<img class="kitchenBackground"src="img/background.png"></li>
 
+			         <li class="layer" id="shelf"  data-depth="0.1"> 
+			         	<img class="shelf" src="img/Shelf.png">
+			         </li>
+
+		          	 <li class="layer" id="oven"  data-depth="0.2"> 
+		          		<img class="oven" src="img/oven.png">
+		         	 </li>
 
 
-					         <li class="layer" id="shelf"  data-depth="0.1"> 
-					         	<img class="shelf" src="img/Shelf.png">
-					         </li>
+			         <li class="layer" id="window"  data-depth="0.1">
+			          <img class="window" src="img/Window.png">
+		             </li>
 
-				          	 <li class="layer" id="oven"  data-depth="0.2"> 
-				          		<img class="oven" src="img/oven.png">
-				         	 </li>
-
-
-					         <li class="layer" id="window"  data-depth="0.1">
-					          <img class="window" src="img/Window.png">
-				             </li>
-
-					        
-
-					          <li class="layer" id="Clarence"  data-depth="0.26"> 
-					          	<img class="Clarence" src="img/Clarence.png">
-					          </li>
+			        
+			          <li class="layer" id="Clarence"  data-depth="0.26"> 
+			          	<img class="Clarence" src="img/Clarence.png">
+			          </li>
 
 
-					           <li class="layer" id="workstation"  data-depth="0.28"> 
-					           <a href="#page3"> 
-					         	<img class="workstation" id="workstation" src="img/Workstation.png">
-					         	</a>
-					         </li>
-
-					     <!--    <li class="layer" id="Button"  data-depth="0.001">
-						        
-					     			 <a href="#page3"> 
-					     			 	<img class="forward-button" src="img/Mix.png">  
-					     			 </a> 
-					     			 <a href="#page1"> 
-					     			 	<img class="back-button-parallax" src="img/Exit.png">  
-					     			 </a> 
-								
-						   	</li> -->
+			           <li class="layer" id="workstation"  data-depth="0.28"> 
+			           	<a href="#page3"> 
+			         		<img class="workstation" id="workstation" src="img/Workstation.png">
+			         	</a>
+			         </li>
 			</ul>
 		</div>				
 	</div>
@@ -139,42 +123,68 @@
 
 <div data-role="content">
 
-	<div class="container12">
+	<div class="bgMixing"><img src="img/BackMix1.png"/></div>
 
-		
-	
-<div id="right_div">
+		<div class="mixing-content">
+			<div class="container12">
 
-			<div id="imageColour">
-				<img id="id100"  onclick="mixColour(id100,1,0,0)" style="width: 100%; height: 100%; background-color: rgb(192,0,0) "></img>		
+		<div class="primary"> 
+				<div id="imageColour">
+								<div id="id100"  onclick="mixColour(id100,1,0,0)"></div>		
+							</div>
+
+							<div id="imageColour">
+								<div id="id010" onclick="mixColour(id010,0,1,0)"></div>		
+							</div>
+
+							<div id="imageColour">
+
+							<!-- the ids for these divs are an example of how we will store the colour, 0 parts red, 0 parts yellow, 1 part blue so the id is 001, i am unsure if their are better ways of storing this in the object/image/div that you are draging. -->
+
+							<div id="id001"  onclick="mixColour(id001,0,0,1)"></div>		
+
+						</div>
 			</div>
 
-			<div id="imageColour">
-				<img id="id010" onclick="mixColour(id010,0,1,0)" style="width: 100%; height: 100%; background-color: rgb(255,255,0)"></img>		
+					</div>
+
+				<div id="right_div">
+
+							
+					</div>
+
+						<div id="mixed_colours" > 	<!-- bowl -->
+						
+						</div>
+
+
+					</div>
+
+						<div class="reset">
+					
+							<button onclick="clear_colours()">Clear Palette</button>
+							<button onclick="reset()" >Reset</button>
+							<button onclick="save()" >Save</button>
+							
+						</div>				
+
+				</div>
 			</div>
-
-			<div id="imageColour">
-			<!-- the ids for these divs are an example of how we will store the colour, 0 parts red, 0 parts yellow, 1 part blue so the id is 001, i am unsure if their are better ways of storing this in the object/image/div that you are draging. -->
-				<img id="id001"  onclick="mixColour(id001,0,0,1)" style="width: 100%; height: 100%; background-color: rgb(0,0,192)"></img>		
-
-			</div>
-		</div>
-	</div>
-
-		<div id="mixed_colours" > 
-			<!-- palette area -->
-		</div>
-
-	<!-- 	<button id="ClearPalette" onclick="clearPalette('mixed_colours')">Reset Mix</button>
- -->
-		<div class="reset">
-				<button onclick="reset()" >reset</button>
-				<button type="button" onclick="save()" >save</button>
-			</div>
-
-
-	</div>
 </div>
+
+<div data-role="page" id="page4">
+	<div data-role="content">
+
+	
+		<div id="tools">
+
+		  <a href="#colors_sketch" data-download="png" style="float: right; width: 100px;">Download</a>
+		  </div>
+		<canvas id="colors_sketch" width="800" height="300"></canvas>
+	</div>
+
+</div>
+
 
 </div>
 
@@ -184,6 +194,7 @@
 <script src="js/main4.js"></script>
 <script src="js/jquery.parallax.min.js"></script>
 <!-- <script src="js/interact-1.2.4.min.js"></script> -->
+<script src="js/sketch.js"></script>
 <script src="js/matha.js"></script>
 <script src="js/paint1.js"></script>
 <script src="js/myJs.js"></script>
