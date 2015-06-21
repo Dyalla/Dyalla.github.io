@@ -35,8 +35,8 @@ var __slice = Array.prototype.slice;
       this.options = $.extend({
         toolLinks: true,
         defaultTool: 'marker',
-        defaultColor: '#000000',
-        defaultSize: 5
+        defaultColor: 'rgba(200,0,0,0.5)',
+        defaultSize: 60
       }, opts);
       this.painting = false;
       this.color = this.options.defaultColor;
@@ -73,7 +73,6 @@ var __slice = Array.prototype.slice;
       }
       mime = "image/" + format;
       return window.open(this.el.toDataURL(mime));
-
     };
     Sketch.prototype.set = function(key, value) {
       this[key] = value;
@@ -98,8 +97,18 @@ var __slice = Array.prototype.slice;
     };
     Sketch.prototype.onEvent = function(e) {
       if (e.originalEvent && e.originalEvent.targetTouches) {
-        e.pageX = e.originalEvent.targetTouches[0].pageX;
-        e.pageY = e.originalEvent.targetTouches[0].pageY;
+        // e.pageX = e.originalEvent.targetTouches[0].pageX;
+        // e.pageY = e.originalEvent.targetTouches[0].pageY;
+
+        //http://stackoverflow.com/questions/21311073/sketch-js-pagex-undefined-error
+
+      if (e.originalEvent.targetTouches[0] !== undefined && e.originalEvent.targetTouches[0].pageX !== undefined){
+          e.pageX = e.originalEvent.targetTouches[0].pageX;
+      }
+      if (e.originalEvent.targetTouches[0] !== undefined && e.originalEvent.targetTouches[0].pageY !==undefined){
+          e.pageY = e.originalEvent.targetTouches[0].pageY;
+      }
+
       }
       $.sketch.tools[$(this).data('sketch').tool].onEvent.call($(this).data('sketch'), e);
       e.preventDefault();
@@ -178,5 +187,3 @@ var __slice = Array.prototype.slice;
     }
   };
 })(jQuery);
-
-

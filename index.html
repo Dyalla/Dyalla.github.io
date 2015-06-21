@@ -2,14 +2,16 @@
 <html>
 <head>
 
+
+
 <!-- <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script type="text/javascript" src="js/jquery-1.11.3.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->
+<script src="js/jquery-1.11.3.js"></script>
 
 
 <!-- Include meta tag to ensure proper rendering and touch zooming -->
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
 
 <!-- Include jQuery Mobile stylesheets -->
 <link rel="stylesheet" href="source/colorchef.min.css" />
@@ -25,10 +27,13 @@
 <!-- 
 <script src="js/jquery.ui.touch-punch.min.js"></script> -->
 
+<script src="js/snap.svg-min.js"></script>
+<script src="js/myJs.js"></script>
 
 
-<link rel="stylesheet" type="text/css" href="source/myStyle.css">
- <link rel="stylesheet" type="text/css" href="source/1140.css">
+
+<link rel="stylesheet" type="text/css" href="source/myStyle.css"/>
+ <link rel="stylesheet" type="text/css" href="source/1140.css"/>
 
  <link rel="stylesheet" type="text/css" href="source/normalize.css" />
 <!-- <link rel="stylesheet" type="text/css" href="css/demo.css" /> -->
@@ -36,13 +41,12 @@
 <link rel="stylesheet" type="text/css" href="source/menu_bubble.css" />
 
 <link rel="stylesheet" type="text/css" href="source/animate.min.css"/>
-<script src="js/snap.svg-min.js"></script>
+
 
 
 
 </head>
 <body>
-
 
 <div class="container">
 			<div class="menu-wrap">
@@ -52,9 +56,18 @@
 						<div class="play"><span>Play</span></div>
 						<div class="pause"><span>Pause</span></div>
 						
-						 <a href="#page1"> 
-	     			 		<img class="" src="img/Exit.png">  
+						<a href="#page3"> 
+	     			 		<img class="" src="img/Mix.png"/>  
 	     			 	</a> 
+	     			 	
+						<a href="#page4" onclick="makeColours ()"> 
+	     			 		<img class="button-decorate" src="img/Deco.png"/>  
+	     			 	</a>
+
+						 <a href="#page1"> 
+	     			 		<img class="exit" src="img/Exit.png"/>  
+	     			 	</a> 
+	     			 		
 
 					</div>
 				</nav>
@@ -72,10 +85,8 @@
 
 	<div data-role="content">
 
-		
-
-		<div class="bg"><img src="img/Background1.png"></div>
-		<div class="door" onclick="document.getElementById('tring').play()"><a href="#page2"><img src="img/Door.png"></a> </div>	
+		<div class="bg"><img src="img/Background1.png"/></div>
+		<div class="door" onclick="document.getElementById('tring').play()"><a href="#page2"><img src="img/Door.png"/></a> </div>	
 		<audio id="tring" src="sounds/tring.mp3">
 
 	</div>
@@ -107,12 +118,11 @@
 			          	<img class="Clarence" src="img/Clarence.png">
 			          </li>
 
-
-			           <li class="layer" id="workstation"  data-depth="0.28"> 
-			           	<a href="#page3"> 
-			         		<img class="workstation" id="workstation" src="img/Workstation.png">
-			         	</a>
-			         </li>
+							<li class="layer" id="workstation"  data-depth="0.28"> 
+					           <a href="#page3"> 
+					         	<img class="workstation" id="workstation" src="img/Workstation.png">
+					         	</a>
+					         </li>
 			</ul>
 		</div>				
 	</div>
@@ -128,37 +138,36 @@
 		<div class="mixing-content">
 			<div class="container12">
 
-		<div class="primary"> 
-				<div id="imageColour">
-								<div id="id100"  onclick="mixColour(id100,1,0,0)"></div>		
-							</div>
+					<ul class="primary"> 
+								<li id="imageColour">
+											<div id="id100"  onclick="mixColour(id100,1,0,0)"></div>		
+								</li>
 
-							<div id="imageColour">
-								<div id="id010" onclick="mixColour(id010,0,1,0)"></div>		
-							</div>
+								<li id="imageColour">
+											<div id="id010" onclick="mixColour(id010,0,1,0)"></div>		
+								</li>
 
-							<div id="imageColour">
+								<li id="imageColour">
 
-							<!-- the ids for these divs are an example of how we will store the colour, 0 parts red, 0 parts yellow, 1 part blue so the id is 001, i am unsure if their are better ways of storing this in the object/image/div that you are draging. -->
+										<!-- the ids for these divs are an example of how we will store the colour, 0 parts red, 0 parts yellow, 1 part blue so the id is 001, i am unsure if their are better ways of storing this in the object/image/div that you are draging. -->
 
-							<div id="id001"  onclick="mixColour(id001,0,0,1)"></div>		
+								<div id="id001"  onclick="mixColour(id001,0,0,1)"></div>		
 
-						</div>
-			</div>
+								</li>
+						</ul>
 
 					</div>
 
 				<div id="right_div">
-
 							
+				</div>
+
+
+					<div id="mixed_colours" > 	<!-- bowl -->
+					
 					</div>
 
-						<div id="mixed_colours" > 	<!-- bowl -->
-						
-						</div>
-
-
-					</div>
+			</div>
 
 						<div class="reset">
 					
@@ -166,7 +175,9 @@
 							<button onclick="reset()" >Reset</button>
 							<button onclick="save()" >Save</button>
 							
-						</div>				
+						</div>
+
+									
 
 				</div>
 			</div>
@@ -175,29 +186,43 @@
 <div data-role="page" id="page4">
 	<div data-role="content">
 
-	
-		<div id="tools">
+	<div id="loader-wrapper">
+    <div id="loader"></div>
+ 
+    <div class="loader-section section-left"></div>
+    <div class="loader-section section-right"></div>
+ 
+</div>
 
-		  <a href="#colors_sketch" data-download="png" style="float: right; width: 100px;">Download</a>
-		  </div>
-		<canvas id="colors_sketch" width="800" height="300"></canvas>
+		<div class="demo" id="colors_demo">
+	          
+	        
+			<div class="tools" > 
+			<!-- display: "block" -->
+			  <a href="#colors_sketch" data-download="png" style="float: right; width: 100px;">Download</a>
+			<!-- <button onclick="testing()">start colour</button>   -->
+
+			  </div>
+				<canvas id="colors_sketch"  width= "800" height= "600"  ></canvas>
+		</div>
 	</div>
 
-</div>
-
 
 </div>
 
 
+
+
+<script src="js/jquery.parallax.min.js"></script>
+<script src="js/sketch.js"></script>
+
+<!-- <script src="js/interact-1.2.4.min.js"></script> -->
+<script src="js/matha.js"></script>
+<script src="js/paint1.js"></script>
 
 <script src="js/classie.js"></script>
 <script src="js/main4.js"></script>
-<script src="js/jquery.parallax.min.js"></script>
-<!-- <script src="js/interact-1.2.4.min.js"></script> -->
-<script src="js/sketch.js"></script>
-<script src="js/matha.js"></script>
-<script src="js/paint1.js"></script>
-<script src="js/myJs.js"></script>
+
 
 
 </body>

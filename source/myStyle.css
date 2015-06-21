@@ -1,7 +1,21 @@
 /*Login Placement*/
 
+
+/*.ui-mobile-viewport ui-overlay-a{
+	 background-color: black !important;
+}*/
+
+
+
+
+/**/
+
+
 .bg{
 	height: 800px;
+}
+.bgMixing{
+	height: 100%;
 }
 
 .door{
@@ -32,7 +46,15 @@
 
 
 /*Kitchen Parallax*/
-
+/*
+.ui-icon-loading {
+    background: url(images/Loading-color.gif);
+    background-size: 100%;
+    /*opacity: 100%;*/
+    /*width: 100%;
+    height:100%;
+    background-color: black;
+}*/
 
 
 #ClearPalette{
@@ -60,37 +82,7 @@
 
 
 
-	#left_div{ 
-		margin-top: 10px;
-		/*width: 50%;*/
-		/*height: 748px; */
-		background-color: white;
-		float: left;
-		margin-left: 100px;
-		border-style: solid;
-		border-width: 1px;
-		border-color: lightgrey;
-	}
 
-	#right_div{
-		width: 50%;
-		margin-left: 50px;
-		height: 100px; 
-		/*background-color:#1f4d30; */
-		/*display: inline-block; */
-	}
-	/*#container{width: 1024px;height: 768px;}*/
-
-	#imageColour{
-		width: 15%;
-		height: 80px; 
-		display: inline-block;
-		border-radius: 80px;
-    	border: 2px solid lightgrey;
-	}
-	#imageColour.active{
-		border: 2px solid black;
-	}
 
 .kitchenBackground{
 	width: 1024px;
@@ -132,11 +124,6 @@
 	margin-left: 300px;
 }
 
-#Button{
-
-	/*margin-top: -100px;*/
-
-}
 
 .back-button-parallax{
 	
@@ -161,33 +148,145 @@
 /*mixing*/
 
 
+.mixing-content{
+	margin-top: -676px;
+	margin-left: -65px;
+	z-index: 10px;
+}
+
+
+
 .reset{
-	width: 30%;
-	margin-left: 100px;
+	width: 15%;
+	margin-left: 80px;
+	margin-top: -200px;
+	padding-bottom: 100px;
 }
 
 #mixed_colours {
 	height: 500px;
-	width: 500px;
+	width: 300px;
 	height: 300px;
-	background-color: lightgrey;
+	background-color: white;
 	border-radius: 300px;
-	margin-left: 30px;
+	margin-left: 465px;
+	margin-top: 100px;
 	padding: 50px;
+
+	position: relative;
+
+	-webkit-transition: background-color 200ms linear;
+    -moz-transition: background-color 200ms linear;
+    -o-transition: background-color 200ms linear;
+    -ms-transition: background-color 200ms linear;
+    transition: background-color 200ms linear;
 
 }
 
 
+#colors_sketch{
+	/*margin-top: 100px;*/
+	margin-left: 150px;
+	background-color: white;
+	border-radius: 100px;
+	/*width and height is determined in the <canvas> html */
+}
+
+/* red */
+
+#id100{
+	width: 80px; 
+	height: 80px; 
+	background-color: rgb(192,0,0);
+	border-radius:100px;
+
+}
+
+/* yellow */
+
+#id010{
+
+	width: 100%; 
+	height: 100%; 
+	background-color: rgb(255,255,0);
+	border-radius:100px;
+
+}
+
+/* blue */
+
+#id001{
+	width: 100%;
+	height: 100%; 
+	background-color: rgb(0,0,192);
+	border-radius:100px;
+}
 
 
 
+	#right_div{
+		width: 500px;
+		margin-left: 100px;
+		height: 100px; 
+		margin-top: 100px;
+		margin-bottom: -100px;
+
+	}
+
+	#imageColour{
+		width: 80px;
+		height: 80px; 
+		display: inline-block;
+		border-radius: 100px;
+    	border: 2px solid #FFFFFF;
+    	margin-top: -50px;
+    	margin-right: 13px;
+
+	}
+
+	/*#imageColour.active{
+		border: 2px solid black;
+	}
+*/
+
+.primary{
+	margin-top: 0px;
+	margin-left: 150px;
+	margin-bottom: -150px;
+	
+
+}
+
+.button-decorate{
+	
+	width: 124px;
+	height: 124px;
+}
 
 
 
+/*sketch part*/
 
+.tools{
+	
+	height: 30%;
+	z-index: 10;
+	margin-top: 20px;
+	margin-left: 100px;
+	width: 100%;
+	
+}
 
+.ui-link {
+	/*height: 100px !important;*/
+	display: inline-block;
 
+	/*display: block; if craps out*/
+}
 
-
+/*.ui-page {
+	-webkit-backface-visibility: hidden !important;
+}
+*/
 
 
