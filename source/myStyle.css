@@ -1,5 +1,83 @@
 * {cursor: none;}
+.tut{
+	margin-top: -200px;
+	margin-left: -50px;
+	z-index: 10000;
+	display: block;
+}
+.tutBG{
+	position: fixed;
+}
 
+#owl-demo .item img{
+    display: block;
+    width: 72%;
+    height: auto;
+    float: right;
+    margin-top: 125px;
+    margin-left: 100px;
+
+}
+a:-webkit-any-link{
+	text-decoration: none!important;
+}
+
+.ui-mobile{
+	height: auto;
+}
+
+
+
+.owl-wrapper-outer{
+	width: 600px;
+}
+
+.item{
+	width: 800px;
+}
+
+/*#owl-demo{
+	width: 800px;
+	margin-left: 100px;
+	margin-top: 130px;
+}*/
+.owl-item{
+	width: 600px;
+}
+
+.Clarence{
+	z-index: 10000;
+}
+.next{
+	margin-top: -100px;
+}
+
+#Dialogue_1{
+	margin-left: 300px;
+}
+
+.talking{
+	margin-top: -150px;
+	margin-left: 50px;
+}
+
+.clarence{
+	width: 300px;
+	margin-top: -250px;
+	display: block;
+	float: left;
+}
+
+#picture{
+	background-color: white;
+	margin-left: 140px;
+	width: 600px;
+	
+}
+
+#projects{
+	margin-left: 80px;
+}
 
 .loginStyle{
 	width: 200px;
@@ -125,9 +203,16 @@
 #workstation{
 	/*width: 200px;*/
 }
+#something{
+	text-decoration: none;
+}
 
 
-
+.loginBG{
+	position: fixed;
+	margin-top: -565px;
+	z-index: -10;
+}
 
 
 .kitchenBackground{
@@ -139,6 +224,7 @@
 
 .ui-content{
 	padding:0px !important;
+	/*height: 768px;*/
 }
 
 .Clarence{
@@ -168,6 +254,7 @@
 	text-align: center;
 	margin-top: 130px;
 	margin-left: 300px;
+	width: 400px;
 }
 
 
@@ -255,7 +342,7 @@
 
 
 #colors_sketch{
-	margin-top: -200px;
+	margin-top: -400px;
 	margin-left: 100px;
 	background-color: white;
 	border-radius: 100px;
@@ -348,7 +435,7 @@
 
 .canvas{
 	float: left;
-	margin-top: 200px;
+	margin-top: -100px;
 }
 .demo{
 	margin-top: 100px;
@@ -358,7 +445,7 @@
 	
 	height: 200px;
 	z-index: 10;
-	margin-top: 70px;
+	margin-top: -120px;
 	margin-right: -105px;
 	width: 300px;
 	float: right;
@@ -372,9 +459,9 @@
 	/*display: block; if craps out*/
 }
 
-/*.ui-page {
-	-webkit-backface-visibility:hidden;
-}*/
+#dialogue1 {
+	background-color: rgba(54, 25, 25, .5);
+}
 
 .saveCanvas{
 	width: 90px;
@@ -384,14 +471,28 @@
 
 }
 
+.refreshCanvas{
+	width: 90px;
+	height: 90px;
+	margin-left:-5px;
+	display: block;
+}
+
 .projectName{
 	width: 35%;
 	float: left;
+	margin-top: -500px;
+	display: block;
+	margin-left: 100px;
 
 }
 
 .decor_bg{
 	position: absolute;
+}
+
+.deco{
+	margin-top: 100px;
 }
 
 /*.rgb{

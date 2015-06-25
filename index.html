@@ -37,6 +37,13 @@
 <link rel="stylesheet" type="text/css" href="source/menu_bubble.css" />
 <link rel="stylesheet" type="text/css" href="source/animate.min.css"/>
 
+<link href="source/owl.carousel.css" rel="stylesheet">
+   <link href="source/owl.theme.css" rel="stylesheet">
+   <link href="source/owl.transitions.css" rel="stylesheet">
+
+   
+
+
 
 </head>
 
@@ -96,6 +103,7 @@
 <!-- start of tem login info -->
 
 	<div data-role="main" class="ui-content">
+
     <!-- <a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ui-icon-check ui-btn-icon-left">Login</a> -->
 
 		<form id="something">
@@ -142,6 +150,9 @@
 		     
 		    </div>
 		</form>
+		 <img class="loginBG" src="img/Login_screen.png"/>
+
+
 	</div>
 </div>
 
@@ -165,6 +176,7 @@
 
 <div data-role="page" id="page2">
 
+
 			<ul id="scene">
 
 					<li class="layer" id="kitchenBackground"    data-depth="0.001"> 
@@ -180,25 +192,56 @@
 
 
 			         <li class="layer" id="window"  data-depth="0.1">
-			          <img class="window" src="img/Window.png">
+			          <img class="window" src="img/Blackboard.png">
 		             </li>
 
 			        
-			          <li class="layer" id="Clarence"  data-depth="0.26"> 
-			          	<img class="Clarence" src="img/Clarence.png">
+			          <li class="layer"   data-depth="0.26"> 
+			          	<img class="workstation" id="workstation" src="img/Workstation.png">
 			          </li>
 
+			          	<li class="layer"  id="Clarence" data-depth="0.28"> 
+					           <!-- <a href="#page3">  -->
+					         	
+						    <a href="#dialogue1">
+				          	<img class="Clarence animated bounce infinite" src="img/Clarence.png">
+				          	</a>
 
-					         <li class="layer" id="workstation"  data-depth="0.28"> 
+					         	<!-- </a> -->
+					         </li>
+
+					         <!-- <li class="layer" id="workstation"  data-depth="0.28"> 
 					           <a href="#page3"> 
 					         	<img class="workstation" id="workstation" src="img/Workstation.png">
 					         	</a>
-					         </li>
+					         </li> -->
 			</ul>
+
+			<!-- <img class="Dialogue_1" id="Dialogue_1"src="img/dialogue/Dialogue_1.png"> -->
+
 		</div>				
 	</div>
 </div>
 
+<div data-role="page" id="dialogue1">
+		<img class="tutBG" src="img/Login_screen.png"/>
+
+			<div id="owl-demo" class="owl-carousel owl-theme">
+ 
+			  <div class="item"><img src="img/Dialogue_1.png"></div>
+			  <div class="item"><img src="img/Dialogue_2.png"></div>
+			  <div class="item"><img src="img/Dialogue_3.png"></div>
+			  <div class="item"><img src="img/Dialogue_4.png"></div>
+			  <div class="item"><img src="img/Dialogue_5.png"></div>
+			  <div class="item"><img src="img/Dialogue_6.png"></div>
+			
+			 
+			</div>
+
+			 <img class="tut animated bounceInUp" src="img/Clarence.png">
+
+</div>
+	
 
 <div data-role="page" id="page3">
 
@@ -220,15 +263,19 @@
 						
 							
 						</div>
+
+						
 				
 						<div id="right_div">
 							
 			</div>
 
+
 					<div id="mixed_colours" > 	<!-- bowl -->
 					
 					</div>
-
+					<div class="clarence"><img src="img/MixingClarence.png"/> </div>
+						<!-- PUT IT HERE -->
 
 
 					<ul class="primary"> 
@@ -270,18 +317,16 @@
 		<div class="deco">
 		<div class="container12">
 		<img class="saveCanvas" src="img/SaveButton.png" onclick='uploadPro()'/>
+		<img class="refreshCanvas" src="img/MixClearButton.png" onclick="makeColours ()"/>
 
 		<div class="demo" id="colors_demo">
-	          
-	        
-
-	        
+	        <div class="projectName"><input type="text"  id="ProjectName" value="Cake Name"></div>
 
 			<!-- <div class="projectName"><input type="text"  id="ProjectName" value="Cake Name"></div> -->
 
 				<div class="canvas"><canvas id="colors_sketch"  width= "650" height= "600" ></canvas></div>
 				
-			<div class="projectName"><input type="text"  id="ProjectName" value="Cake Name"></div>
+			
 				
 
 				<!-- <div class="rgb"> -->
@@ -303,14 +348,19 @@
 
 </div>
 
-<!-- trying darg and drop -->
+
 
 
 
 <div data-role="page" id="page5" >
 	<div data-role="content" >
+
+	<div class="decor_bg"><img src="img/Gallery.png"/></div>
+
 	<div style="position:absolute; top: 75px; left:75px;">
+
 		<div id="projects" style="overflow:scroll; position:absolute; float: left; width: 18%; height:100%;">
+
 
 			<div style=" height:50px; width:100%;"><button onclick="document.getElementById('picture').src='img/download2.png';">Project1</button></div>
 
@@ -318,14 +368,24 @@
 
 			<div style=" height:50px; width:100%;"><button onclick="document.getElementById('picture').src='img/download3.png';">Project3</button></div>
 			
+			
+
 		</div>
+		
+
 
 
 		<div id="1picture"style="float: right; width:80%;  height:100%; top:100px;">
 			<img id = "picture" src="img/blank.png" >
 		</div>
+		
+		
+		
+		<img src="img/ClearPaletteButton.png" style="float:right; height:100px; margin-left:100px;" onclick="deleteProject()"/>
 
 	</div>
+
+
 	</div>
 
 
@@ -337,6 +397,7 @@
 
 
 
+<script type="text/javascript" src="js/owl.carousel.min.js"></script>
 
 <script src="js/jquery.parallax.min.js"></script>
 <script src="js/sketch.js"></script>

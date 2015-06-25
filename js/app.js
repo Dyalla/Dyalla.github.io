@@ -57,7 +57,7 @@ function logout (url) {
       success:function(result){
         
         //success
-        alert("you have logged out");
+        // alert("you have logged out");
         return true;        
 
       },
@@ -388,6 +388,34 @@ function getProject (url, projectId, callback) {
 
 }
 
+
+
+function DeleteProjects (url,id, callback) {
+
+	var DelUrl = url+'/api/project/'+id;
+
+	$.ajax({
+      url: DelUrl,
+      type: 'DELETE',
+      success:function(result){
+        
+        //success
+
+        console.log("deleted the project "+id);
+        callback(true);
+
+      },
+      error: function (error) {
+
+      	// error
+
+        console.log("error deleteing the project -> "+ JSON.stringify(error));
+
+      callback(false);
+      }
+
+    });
+}
 
 
 //get friends project

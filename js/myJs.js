@@ -4,7 +4,8 @@ var URL = "https://colour-chef.herokuapp.com";
 
 $(document).on('pageinit', function() {
 
-    
+    	
+
     	$('#scene').parallax();
 
 
@@ -32,7 +33,8 @@ $(document).on('pageinit', function() {
             audioElement.pause();
         });
 
-        $('#workstation').addClass('animated bounce infinite');
+        // $('#workstation').addClass('animated bounce infinite');
+        // $('#Dialogue_1').addClass('animated bounceInUp');
        	
        
        	 // $('.primary').addClass('animated rubberBand');
@@ -52,6 +54,26 @@ $(document).on('pageinit', function() {
 
         
    });
+
+$(document).ready(function() {
+ 
+  $("#owl-demo").owlCarousel({
+ 
+      navigation : true, // Show next and prev buttons
+      slideSpeed : 300,
+      paginationSpeed : 400,
+      singleItem:true
+ 
+      // "singleItem:true" is a shortcut for:
+      // items : 1, 
+      // itemsDesktop : false,
+      // itemsDesktopSmall : false,
+      // itemsTablet: false,
+      // itemsMobile : false
+ 
+  });
+ 
+});
 
 
 
@@ -96,6 +118,9 @@ $(function(){
 
 
 function loginPrompt () {
+	// get_colours (URL,function (col) {
+	// 		colours = col;
+	// 	});
 	console.log("in login");
 	// body...
 	var username = $("#usrnm").val();
@@ -108,21 +133,18 @@ function loginPrompt () {
 		if(data){
 
 		console.log("logged in");
-		colours = ['rgb(192,0,0)','rgb(255,255,0)', 'rgb(0,0,192)'];
+		colours = [];
 		$("#picture").attr("src","./img/blank.png");
 		$("#right_div").empty();
 
-		get_colours (URL,function (col) {
-			colours = col;
-		});
+		// get_colours (URL,function (col) {
+		// 	colours = col;
+		// });
 
 
 
 }
 	});
-
-		
-		
 	
 }
 
@@ -139,7 +161,7 @@ function createPrompt() {
 
 	create_new_user(URL ,name ,username , password ,0 , "easy",function (data) {
 		if(data){
-			colours = ['rgb(192,0,0)','rgb(255,255,0)', 'rgb(0,0,192)'];
+			colours = [];
 		$("#picture").attr("src","./img/blank.png");
 		$("#right_div").empty();
 		}
@@ -165,7 +187,7 @@ function createPrompt() {
 	//list of the saved colours
 	//can be used get colours into painting page.
 
-	var colours = ['rgb(192,0,0)','rgb(255,255,0)', 'rgb(0,0,192)'];
+	var colours = [];
 	
 
 function reset () {
@@ -193,7 +215,7 @@ function reset () {
 
 	//'rgb(192,0,0)','rgb(255,255,0)', 'rgb(0,0,192)'
 
-	var colours = [];
+	// var colours = [];
 	
 
 
@@ -210,11 +232,16 @@ function reset () {
 
 function save () {
 
+	if(colours.length>=8){
+		alert("youa already have 8 colours");
+		return;
+	}
+
 	var colour = change(MixRed*32,MixYellow*32,MixBlue*32);
 
 	//checks for white
  	if(colour=='rgb(255,255,255)'){
- 			alert('white');
+ 			//alert('white');
  			return;
  	}
 
@@ -232,7 +259,7 @@ function save () {
  				for(var j=0;j<(colours.length/2)+1;j++){
 
  					if(i!=j&&colours[i]==colours[j]){
- 						alert('colour exists');
+ 						// alert('ALREADY in palette');
  						colours.splice(i, 1);
  						return;
  					}
@@ -311,7 +338,7 @@ function save () {
  			if(divCount>=8){   //this resets the palette counter
  				
  				console.log("STOP PLS"); 
- 				alert('palette full!');
+ 				// alert('palette full!');
 
  				return;
 
@@ -331,10 +358,7 @@ function save () {
 		$(".added").remove();
 
 		//clear the array.
-		colours=['rgb(192,0,0)','rgb(255,255,0)', 'rgb(0,0,192)'];
-
-
-
+		colours=[];
 		//
 		//
 		//
@@ -342,9 +366,6 @@ function save () {
 		//
 		//
 		//
-
-
-
 
 		//resets the colouring, background white
 		reset();
@@ -372,10 +393,10 @@ function save () {
 
     		var id = data[i].project_id;
     		var name = data[i].project_name;
-    		$("#projects").append('<div style=" height:50px; width:100%;"><button onclick="getPro('+id+')";">'+name+'</button></div>');
+    		$("#projects").append('<img src="img/CakeFile.png" style="height:100px" onclick="getPro('+id+')";">'+'<p style=" color:white;">'+name+'</p>'+'</img>');
 
     		}
-
+// div style=" height:50px; width:100%;"
 
     		}
 
@@ -389,6 +410,7 @@ function save () {
     	console.log("getting project ->"+id);
     	getProject (URL, id, function (data) {
     		// body...
+    		selectedProject = id;
 
     		console.log("in callback "+data);
     		$("#picture").attr("src",data);
@@ -413,5 +435,42 @@ function save () {
 
     function logout_Prompt () {
     	logout(URL);
+    	$("#pswd").val("");
+    	$("#usrnm").val("");
+    	$("#name").val("");
+    	$("#username").val("");
+    	$("#password").val("");
+    	
+
+    	
+    }
+
+
+    var selectedProject = -1;
+    //add "selectedProject = -1;" in first line of getDetails();
+    //and in function getDetails()
+    //where code look like 
+    // if(data.error){
+    // 			 			
+    // 			
+    // 			alert(data.error);
+    // 			
+    // 		}else{
+    	//change to 
+    	 // if(data.error){
+    // 			 			
+    // 			
+    // 			
+    // 		}else{
+    	//get rid of the alert
+    function deleteProject(){
+    	if(selectedProject==-1){
+    		// alert("please select a project first");
+    		return;
+    	}
+    	DeleteProjects (URL,selectedProject, function (result) {
+    	});
+    	selectedProject=-1;
+    	getDetails();    	
     }
 
