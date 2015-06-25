@@ -2,50 +2,44 @@
 <html>
 <head>
 
-
-
 <!-- <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script> -->
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script> -->
-<script src="js/jquery-1.11.3.js"></script>
-
+<!-- <script src="js/jquery-1.11.3.js"></script>
+ -->
 
 <!-- Include meta tag to ensure proper rendering and touch zooming -->
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 <!-- Include jQuery Mobile stylesheets -->
 <link rel="stylesheet" href="source/colorchef.min.css" />
 <link rel="stylesheet" href="source/jquery.mobile.icons.min.css" />
 
-<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+<link rel="stylesheet" href="js/jquery.mobile.structure-1.4.5.min.css" />
 
 <!-- Include the jQuery library -->
-<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<!-- <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script> -->
+<script src="js/jquery-1.11.3.js"></script>
 
 <!-- Include the jQuery Mobile library -->
-<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-<!-- 
-<script src="js/jquery.ui.touch-punch.min.js"></script> -->
+<script src="js/jquery.mobile-1.4.5.min.js"></script>
+
 
 <script src="js/snap.svg-min.js"></script>
 <script src="js/myJs.js"></script>
-
-
+<script src="js/app.js"></script>
 
 <link rel="stylesheet" type="text/css" href="source/myStyle.css"/>
- <link rel="stylesheet" type="text/css" href="source/1140.css"/>
-
- <link rel="stylesheet" type="text/css" href="source/normalize.css" />
-<!-- <link rel="stylesheet" type="text/css" href="css/demo.css" /> -->
+<link rel="stylesheet" type="text/css" href="source/1140.css"/>
+<link rel="stylesheet" type="text/css" href="source/normalize.css" />
+<link rel="stylesheet" type="text/css" href="source/dropzones.css" />
 <link rel="stylesheet" type="text/css" href="fonts/font-awesome.min.css" />
 <link rel="stylesheet" type="text/css" href="source/menu_bubble.css" />
-
 <link rel="stylesheet" type="text/css" href="source/animate.min.css"/>
 
 
-
-
 </head>
+
 <body>
 
 <div class="container">
@@ -53,20 +47,23 @@
 				<nav class="menu">
 					<div class="icon-list">
 
-						<div class="play"><span>Play</span></div>
-						<div class="pause"><span>Pause</span></div>
+						<div class="play"><img src="img/PlayButton.png"/></div>
+						<div class="pause"><img src="img/PauseButton.png"></div>
 						
 						<a href="#page3"> 
-	     			 		<img class="" src="img/Mix.png"/>  
+	     			 		<img class="mix" src="img/MixButton.png"/>  
 	     			 	</a> 
 	     			 	
 						<a href="#page4" onclick="makeColours ()"> 
 	     			 		<img class="button-decorate" src="img/Deco.png"/>  
 	     			 	</a>
 
-						 <a href="#page1"> 
-	     			 		<img class="exit" src="img/Exit.png"/>  
-	     			 	</a> 
+	     			 	 <a href="#page5" onclick="getDetails()"> 
+	     			 		<img class="exit" src="img/GalleryButton.png"/>  
+	     			 	</a>
+	     			 	<a href="#pageOne" onclick="logout_Prompt()"> 
+	     			 		<img class="exit" src="img/Exit.png"/>
+	     			 	</a>  
 	     			 		
 
 					</div>
@@ -78,19 +75,92 @@
 					</svg>
 				</div>
 			</div>
-			<button class="menu-button" id="open-button"></button>
+			<img class="menu-button" id="open-button" src="img/MenuButton.png"/>
 			
 		</div><!-- /container -->
-<div data-role="page" id="page1">
+
+<div data-role="page" id="pageOne">
+
 
 	<div data-role="content">
 
-		<div class="bg"><img src="img/Background1.png"/></div>
-		<div class="door" onclick="document.getElementById('tring').play()"><a href="#page2"><img src="img/Door.png"/></a> </div>	
+		<div class="bg"><img class="bg" src="img/Background1.png"/></div>
+		<div onclick="document.getElementById('tring').play()"><a href="#pageLogin"><img class="door" src="img/Door.png"/></a> </div>	
 		<audio id="tring" src="sounds/tring.mp3">
 
 	</div>
 </div>
+
+<div data-role="page" id="pageLogin">
+
+<!-- start of tem login info -->
+
+	<div data-role="main" class="ui-content">
+    <!-- <a href="#myPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ui-icon-check ui-btn-icon-left">Login</a> -->
+
+		<form id="something">
+		    <!-- <div data-role="popup" id="myPopup" class="ui-content" style="min-width:250px;"> -->
+		    
+		        <div class="loginStyle">
+		          <!-- <h3>Login information</h3> -->
+		          <label for="usrnm" class="ui-hidden-accessible">Username:</label>
+		          <input type="text" name="user" id="usrnm" placeholder="Username">
+		          <label for="pswd" class="ui-hidden-accessible">Password:</label>
+		          <input type="password" name="passw" id="pswd" placeholder="Password">          
+		          <a href="#page1"><input type="submit" onclick="loginPrompt()" id="loginButton" value="Log in"></a>
+		        </div>
+		     
+		    <!-- </div> -->
+		</form>
+	</div>
+
+
+  	<div data-role="main" class="ui-content">
+    <!-- <a href="#myPopup-create" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all ui-icon-check ui-btn-icon-left">Create new User</a> -->
+
+
+		<form id="something">
+		    <!-- <div data-role="popup" id="myPopup-create" class="ui-content" style="min-width:250px;"> -->
+		    
+		        <div class="signUpStyle">
+		          <!-- <h3>user information</h3> -->
+
+		          <label for="name" class="ui-hidden-accessible">Name:</label>
+		          <input type="text" name="name" id="name" placeholder="Name">
+
+
+		           <label for="username" class="ui-hidden-accessible">UserName:</label>
+		          <input type="text" name="username" id="username" placeholder="Username">
+
+
+
+		          <label for="password" class="ui-hidden-accessible">Password:</label>
+		          <input type="password" name="password" id="password" placeholder="Password"> 
+
+		          <a href="#page1"><input type="submit" onclick="createPrompt()" id="loginButton" value="Sign Up"></a>
+		        <!-- </div> -->
+		     
+		    </div>
+		</form>
+	</div>
+</div>
+
+<!-- end of temp login info -->
+
+
+<div data-role="page" id="page1">
+
+
+	<div data-role="content">
+
+		<div class="bg"><img class="bg" src="img/Background1.png"/></div>
+		<div onclick="document.getElementById('tring').play()"><a href="#page2"><img class="door" src="img/Door.png"/></a> </div>	
+		<audio id="tring" src="sounds/tring.mp3">
+
+	</div>
+</div>
+
+
 
 
 <div data-role="page" id="page2">
@@ -118,7 +188,8 @@
 			          	<img class="Clarence" src="img/Clarence.png">
 			          </li>
 
-							<li class="layer" id="workstation"  data-depth="0.28"> 
+
+					         <li class="layer" id="workstation"  data-depth="0.28"> 
 					           <a href="#page3"> 
 					         	<img class="workstation" id="workstation" src="img/Workstation.png">
 					         	</a>
@@ -134,11 +205,43 @@
 <div data-role="content">
 
 	<div class="bgMixing"><img src="img/BackMix1.png"/></div>
-
+	<!-- <div class="bgMixing"><img src="img/Mixingtrial_layout.png"/></div>	 -->
 		<div class="mixing-content">
 			<div class="container12">
 
+					<div class="reset">
+
+							<img src="img/SaveButton.png" class="save" onclick="save()"/>
+							<img src="img/ClearPaletteButton.png" class="save" onclick="clear_colours()"/>
+							<img src="img/MixClearButton.png" class="save" onclick="clear_colours()"/>
+							
+							<!-- <button onclick="clear_colours()">Clear Palette</button> -->
+							<!-- <button onclick="reset()" >Reset Bowl</button> -->
+						
+							
+						</div>
+				
+						<div id="right_div">
+							
+			</div>
+
+					<div id="mixed_colours" > 	<!-- bowl -->
+					
+					</div>
+
+
+
 					<ul class="primary"> 
+														
+
+								<li id="imageColour">
+
+										<!-- the ids for these divs are an example of how we will store the colour, 0 parts red, 0 parts yellow, 1 part blue so the id is 001, i am unsure if their are better ways of storing this in the object/image/div that you are draging. -->
+
+											<div id="id001"  onclick="mixColour(id001,0,0,1)"></div>		
+							
+								</li>
+
 								<li id="imageColour">
 											<div id="id100"  onclick="mixColour(id100,1,0,0)"></div>		
 								</li>
@@ -147,64 +250,82 @@
 											<div id="id010" onclick="mixColour(id010,0,1,0)"></div>		
 								</li>
 
-								<li id="imageColour">
-
-										<!-- the ids for these divs are an example of how we will store the colour, 0 parts red, 0 parts yellow, 1 part blue so the id is 001, i am unsure if their are better ways of storing this in the object/image/div that you are draging. -->
-
-								<div id="id001"  onclick="mixColour(id001,0,0,1)"></div>		
-
-								</li>
 						</ul>
 
-					</div>
-
-				<div id="right_div">
-							
-				</div>
-
-
-					<div id="mixed_colours" > 	<!-- bowl -->
-					
-					</div>
-
 			</div>
-
-						<div class="reset">
-					
-							<button onclick="clear_colours()">Clear Palette</button>
-							<button onclick="reset()" >Reset</button>
-							<button onclick="save()" >Save</button>
-							
-						</div>
-
-									
+						
+			</div>
+								
 
 				</div>
 			</div>
 </div>
 
 <div data-role="page" id="page4">
-	<div data-role="content">
 
-	<div id="loader-wrapper">
-    <div id="loader"></div>
- 
-    <div class="loader-section section-left"></div>
-    <div class="loader-section section-right"></div>
- 
-</div>
+
+	<div data-role="content">
+		
+		<div class="decor_bg"><img src="img/Decor_backing.png"/></div>
+		<div class="deco">
+		<div class="container12">
+		<img class="saveCanvas" src="img/SaveButton.png" onclick='uploadPro()'/>
 
 		<div class="demo" id="colors_demo">
 	          
 	        
-			<div class="tools" > 
-			<!-- display: "block" -->
-			  <a href="#colors_sketch" data-download="png" style="float: right; width: 100px;">Download</a>
-			<!-- <button onclick="testing()">start colour</button>   -->
+
+	        
+
+			<!-- <div class="projectName"><input type="text"  id="ProjectName" value="Cake Name"></div> -->
+
+				<div class="canvas"><canvas id="colors_sketch"  width= "650" height= "600" ></canvas></div>
+				
+			<div class="projectName"><input type="text"  id="ProjectName" value="Cake Name"></div>
+				
+
+				<!-- <div class="rgb"> -->
+					<!-- <a href="#colors_sketch" class="rgb" data-color="#ff0000"></a> -->
+				<!-- </div> -->
+
+				<div class="tools" > 
+		
 
 			  </div>
-				<canvas id="colors_sketch"  width= "800" height= "600"  ></canvas>
+
+
+				
+
 		</div>
+	</div>
+	</div>
+</div>
+
+</div>
+
+<!-- trying darg and drop -->
+
+
+
+<div data-role="page" id="page5" >
+	<div data-role="content" >
+	<div style="position:absolute; top: 75px; left:75px;">
+		<div id="projects" style="overflow:scroll; position:absolute; float: left; width: 18%; height:100%;">
+
+			<div style=" height:50px; width:100%;"><button onclick="document.getElementById('picture').src='img/download2.png';">Project1</button></div>
+
+			<div style=" height:50px; width:100%;"><button onclick="document.getElementById('picture').src='img/download1.png';">Project2</button></div>
+
+			<div style=" height:50px; width:100%;"><button onclick="document.getElementById('picture').src='img/download3.png';">Project3</button></div>
+			
+		</div>
+
+
+		<div id="1picture"style="float: right; width:80%;  height:100%; top:100px;">
+			<img id = "picture" src="img/blank.png" >
+		</div>
+
+	</div>
 	</div>
 
 
@@ -213,10 +334,15 @@
 
 
 
+
+
+
+
 <script src="js/jquery.parallax.min.js"></script>
 <script src="js/sketch.js"></script>
 
-<!-- <script src="js/interact-1.2.4.min.js"></script> -->
+<script src="js/interact.js"></script>
+<script src="js/dropzones.js"></script>
 <script src="js/matha.js"></script>
 <script src="js/paint1.js"></script>
 

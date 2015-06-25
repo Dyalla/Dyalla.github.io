@@ -1,29 +1,77 @@
-/*Login Placement*/
+* {cursor: none;}
 
 
-/*.ui-mobile-viewport ui-overlay-a{
-	 background-color: black !important;
-}*/
-
-
-
-
-/**/
-
-
-.bg{
-	height: 800px;
+.loginStyle{
+	width: 200px;
+	margin-left: 400px;
+	margin-top: 200px;
+	/*float: left;*/
 }
+
+.signUpStyle{
+	width: 200px;
+	margin-left: 400px;
+	/*float: right;*/
+}
+
+.ui-input-text input, .ui-input-search input{
+	background: white!important;
+}
+
+#page1{
+	z-index: 1003;
+}
+
+#pageOne{
+	z-index: 1004;
+}
+
+#pageLogin{
+	z-index: 1002;
+}
+
+.play{
+	width: 70px;
+	margin-right: 15px;
+	display: inline-block;
+}
+.pause{
+	width: 70px;
+	display: inline-block;
+}
+
+.button-decorate{
+	
+	width: 124px;
+	height: 124px;
+}
+.exit{
+	
+	width: 124px;
+	height: 124px;
+}
+.mix{
+	
+	width: 124px;
+	height: 124px;
+}
+
 .bgMixing{
-	height: 100%;
+	height:100%;
+}
+
+/*Login Placement*/
+.bg{
+	height: 768px;
 }
 
 .door{
-	margin-top: -700px;
-	margin-left: 360px;
+	margin-top: -650px;
+	margin-left: 347px;
 	/*width:auto;*/
-	width: 300px;
-	height:70%;
+	/*margin-bottom: 100px;*/
+	width: 330px;
+	height: 650px !important;
 }
 
 #close-button{
@@ -32,8 +80,9 @@
 }
 
 #open-button{
-	width: 50px;
-	height: 50px;
+	width: 90px;
+	height: 90px;
+
 }
 
 .play {
@@ -46,16 +95,15 @@
 
 
 /*Kitchen Parallax*/
-/*
+
 .ui-icon-loading {
     background: url(images/Loading-color.gif);
+    width: 200px;
+    height: 200px;
     background-size: 100%;
-    /*opacity: 100%;*/
-    /*width: 100%;
-    height:100%;
+    opacity: 100%;
     background-color: black;
-}*/
-
+}
 
 #ClearPalette{
 	font-family: arial;
@@ -73,12 +121,10 @@
 /*.selected {
     border: 3px solid black;
 }*/
-/*
+
 #workstation{
-	-vendor-animation-duration: 10s;
-  -vendor-animation-delay: 20s;
-  -vendor-animation-iteration-count: infinite;
-}*/
+	/*width: 200px;*/
+}
 
 
 
@@ -151,26 +197,50 @@
 .mixing-content{
 	margin-top: -676px;
 	margin-left: -65px;
-	z-index: 10px;
+	height: 100%;
+	/*z-index: 10px;*/
 }
 
 
 
 .reset{
 	width: 15%;
-	margin-left: 80px;
-	margin-top: -200px;
-	padding-bottom: 100px;
+	height: 100%;
+	margin-left: 15px;
+	/*position: inline;*/
+	/*margin-top: -200px;*/
+	/*padding-bottom: 100px;*/
+}
+
+.save {
+	width: 90px;
+	height: 90px; 
+	margin-top: 100px;
+	margin-left: 15px;
+	margin-bottom: -90px;
+	position: inline;
+	/*display: inline-block;*/
+}
+.clear{
+
+	width: 90px;
+	height: 90px; 
+	margin-top: 30px;
+	margin-left: 15px;
+	position: inline;
+	/*display: inline-block;*/
 }
 
 #mixed_colours {
 	height: 500px;
-	width: 300px;
-	height: 300px;
+	width: 246px;
+	height: 246px;
 	background-color: white;
 	border-radius: 300px;
-	margin-left: 465px;
-	margin-top: 100px;
+	margin-left: 345px;
+	float: left;
+	margin-top: -155px;
+	margin-bottom: 100px;
 	padding: 50px;
 
 	position: relative;
@@ -185,10 +255,11 @@
 
 
 #colors_sketch{
-	/*margin-top: 100px;*/
-	margin-left: 150px;
+	margin-top: -200px;
+	margin-left: 100px;
 	background-color: white;
 	border-radius: 100px;
+	margin-bottom: 100px;
 	/*width and height is determined in the <canvas> html */
 }
 
@@ -224,23 +295,16 @@
 
 
 
-	#right_div{
-		width: 500px;
-		margin-left: 100px;
-		height: 100px; 
-		margin-top: 100px;
-		margin-bottom: -100px;
-
-	}
 
 	#imageColour{
 		width: 80px;
 		height: 80px; 
 		display: inline-block;
 		border-radius: 100px;
-    	border: 2px solid #FFFFFF;
+    	border: 4px solid #bababb;
     	margin-top: -50px;
-    	margin-right: 13px;
+    	margin-right: 10px;
+    	margin-bottom: 60px;
 
 	}
 
@@ -250,30 +314,54 @@
 */
 
 .primary{
-	margin-top: 0px;
-	margin-left: 150px;
-	margin-bottom: -150px;
-	
+
+	margin-top: 300px;
+	margin-left: 475px;
+	width: 500px;
+	/*margin-bottom: -150px;*/
+
 
 }
 
-.button-decorate{
+	#right_div{
+		width: 200px;
+		float: right;
+		height: 500px; 
+		margin-top: -25px;
+		/*margin-bottom: -100px;*/
+		margin-right: -40px;
+		/*z-index: 1000;*/
+		/*padding-right: 10px;*/
+
+	}
+
+
+.added{
+	margin-bottom: 100px;
 	
-	width: 124px;
-	height: 124px;
 }
+
 
 
 
 /*sketch part*/
 
+.canvas{
+	float: left;
+	margin-top: 200px;
+}
+.demo{
+	margin-top: 100px;
+}
+
 .tools{
 	
-	height: 30%;
+	height: 200px;
 	z-index: 10;
-	margin-top: 20px;
-	margin-left: 100px;
-	width: 100%;
+	margin-top: 70px;
+	margin-right: -105px;
+	width: 300px;
+	float: right;
 	
 }
 
@@ -285,8 +373,28 @@
 }
 
 /*.ui-page {
-	-webkit-backface-visibility: hidden !important;
+	-webkit-backface-visibility:hidden;
+}*/
+
+.saveCanvas{
+	width: 90px;
+	height: 90px;
+	margin-top: 120px;
+	margin-left:-5px;
+
 }
-*/
 
+.projectName{
+	width: 35%;
+	float: left;
 
+}
+
+.decor_bg{
+	position: absolute;
+}
+
+/*.rgb{
+	width: 80px;
+	height: 80px;
+}*/
